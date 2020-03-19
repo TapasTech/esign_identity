@@ -1,8 +1,6 @@
 # EsignIdentity
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/esign_identity`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+易签宝身份认证 SDK
 
 ## Installation
 
@@ -22,7 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+Esign.configure do |config|
+  config.app_id = 'xxxxx'  
+  config.app_secret = 'xxxx'  
+  config.identity_host = 'xxxx'  
+end
+
+instance = Esign::Identity.instance
+
+# 个人身份认证
+instance.identify_individual(name, id_no, bank_card_number, phone_number)
+  
+# 企业身份认证
+instance.identify_enterprise(name, social_code, legal_person_name)
+```
 
 ## Development
 
